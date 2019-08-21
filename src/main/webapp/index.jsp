@@ -4,8 +4,10 @@
 <html>
 <head>
     <title>Hello</title>
+    <%@include file="/partials/scripts.jsp"%>
 </head>
 <body>
+<%@include file="/partials/navbar.jsp" %>
 
 <h1>The current count is <%= counter %>.</h1>
 
