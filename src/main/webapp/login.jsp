@@ -10,23 +10,35 @@
 <html>
 <head>
     <title>Title</title>
+    <link rel="stylesheet" href="uikit/dist/css/uikit.css">
+    <link rel="stylesheet" href="uikit/dist/css/uikit-rtl.css">
+    <script src="uikit/dist/js/uikit.js"></script>
+    <script src="uikit/dist/js/uikit-icons.js"></script>
 </head>
 <body>
-<form method="post" action="http://localhost:8080/login.jsp">
-    <label for="username">Username</label>
-    <input id="username" name="username" type="text">
-    <br>
-    <label for="password">Password</label>
-    <input id="password" name="password" type="text">
-    <br>
-    <input type="submit">
+<%@ include file="partials/top_package.jsp"%>
 
+<container class=".uk-container">
+<form method="post" action="http://localhost:8080/login.jsp">
+    <fieldset class="uk-fieldset">
+        <div class="uk-margin">Username:
+            <input id="username" name="username" type="text" class="uk-input" placeholder="Username">
+        </div>
+        <br>
+        <div class="uk-margin">Password:
+            <input id="password" name="password" type="text" class="uk-input" placeholder="Password">
+        </div>
+        <br>
+        <button type="submit" class="uk-button-primary">Submit</button>
+    </fieldset>
+</form>
     <p>Admin Parameter: <%=request.getParameter("username")%></p>
     <p>Password Parameter: <%= request.getParameter("password")%></p>
     
     <c:if test="${param.username.equalsIgnoreCase('admin') && param.password.equalsIgnoreCase('password')}">
         <c:redirect url="profile.jsp"></c:redirect>
     </c:if>
+</container>
 </form>
 </body>
 </html>
