@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%! int counter = 0; %>
 <% counter += 1; %>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>Hello</title>
@@ -10,7 +10,9 @@
 <body>
 <%@include file="/partials/navbar.jsp" %>
 
-<h3>This site has been visited: <%= counter %> ${counter == 1 ? 'time' : 'times'}</h3>
+<h3>
+    This site has been visited <%=counter%> times!
+</h3>
 
 View the page source!
 <% request.getParameter("page_no");%>
