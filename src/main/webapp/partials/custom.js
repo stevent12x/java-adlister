@@ -1,3 +1,5 @@
 "use strict";
 
-document.getElementById('button').onclick(console.log("quit pressin; mah buttons"));
+UIkit.util.on('#button', 'click', function () {
+	console.log("Quit pressin' me!")
+})

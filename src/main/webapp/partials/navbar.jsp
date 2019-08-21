@@ -4,7 +4,7 @@
     <div class="uk-navbar-left">
 
         <ul class="uk-navbar-nav">
-            <li class="uk-active"><a href="#">This</a></li>
+            <li id="thisButton" class="uk-active"><a href="#">This</a></li>
             <li>
                 <a href="#">Is</a>
                 <div class="uk-navbar-dropdown">
@@ -41,4 +41,14 @@
 </nav>
 </div>
 
-<script>${'#button'}.click(console.log("Quit Pressin' Mah Buttons"))</script>
+
+<script>
+    UIkit.util.on('#button', 'click', function () {
+        console.log("Quit pressin' me!")
+    });
+</script>
+<script>
+    UIkit.util.on('#thisButton', 'click', function () {
+        console.log("Feeling cheeky are we?")
+    })
+</script>
