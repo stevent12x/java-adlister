@@ -20,6 +20,5 @@ View the page source!
 <!-- this is an HTML comment, you *will* see this in the html -->
 
 
-<script src=""></script>
 </body>
 </html>
