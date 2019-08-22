@@ -10,28 +10,26 @@
 <html>
 <head>
     <title>Login</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="uikit/dist/css/uikit.min.css">
-    <script src="uikit/dist/js/uikit.min.js"></script>
-    <script src="uikit/dist/js/uikit-icons.min.js"></script>
+    <%@include file="/partials/top_package.jsp"%>
 </head>
 <body>
 <container class="uk-container">
 <form method="post" action="http://localhost:8080/login.jsp">
-    <fieldset class="uk-fieldset">
+    <fieldset class="uk-fieldset uk-margin-large-left uk-margin-small-bottom uk-form-width-medium">
         <div class="uk-margin">Username:
-            <input id="username" name="username" type="text" class="uk-input" placeholder="Username">
+            <input id="username" name="username" type="text" class="uk-input uk-form-danger" placeholder="Username">
         </div>
         <br>
         <div class="uk-margin">Password:
-            <input id="password" name="password" type="password" class="uk-input" placeholder="Password">
+            <input id="password" name="password" type="password" class="uk-input uk-form-danger uk-form-success" placeholder="Password">
         </div>
         <br>
-        <button type="submit" class="uk-button-primary">Submit</button>
+        <button type="submit" class="uk-button-primary uk-button-large uk-width-1-2@m uk-text-small uk-padding-small">Submit</button>
     </fieldset>
 </form>
-    <p>Admin Parameter: <%=request.getParameter("username")%></p>
-    <p>Password Parameter: <%= request.getParameter("password")%></p>
+    <hr class="uk-divider-icon">
+    <p class="uk-margin-large-left">Admin Parameter: <%=request.getParameter("username")%></p>
+    <p class="uk-margin-large-left">Password Parameter: <%= request.getParameter("password")%></p>
     
     <c:if test="${param.username.equalsIgnoreCase('admin') && param.password.equalsIgnoreCase('password')}">
         <c:redirect url="profile.jsp"></c:redirect>
