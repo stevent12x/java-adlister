@@ -9,16 +9,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
-    <link rel="stylesheet" href="uikit/dist/css/uikit.css">
-    <link rel="stylesheet" href="uikit/dist/css/uikit-rtl.css">
-    <script src="uikit/dist/js/uikit.js"></script>
-    <script src="uikit/dist/js/uikit-icons.js"></script>
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="uikit/dist/css/uikit.min.css">
+    <script src="uikit/dist/js/uikit.min.js"></script>
+    <script src="uikit/dist/js/uikit-icons.min.js"></script>
 </head>
 <body>
-<%@ include file="partials/top_package.jsp"%>
-
-<container class=".uk-container">
+<container class="uk-container">
 <form method="post" action="http://localhost:8080/login.jsp">
     <fieldset class="uk-fieldset">
         <div class="uk-margin">Username:
@@ -26,12 +24,14 @@
         </div>
         <br>
         <div class="uk-margin">Password:
-            <input id="password" name="password" type="text" class="uk-input" placeholder="Password">
+            <input id="password" name="password" type="password" class="uk-input" placeholder="Password">
         </div>
         <br>
         <button type="submit" class="uk-button-primary">Submit</button>
     </fieldset>
 </form>
+
+
     <p>Admin Parameter: <%=request.getParameter("username")%></p>
     <p>Password Parameter: <%= request.getParameter("password")%></p>
     
