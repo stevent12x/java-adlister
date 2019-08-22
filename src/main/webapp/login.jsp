@@ -15,21 +15,21 @@
 <body>
 <container class="uk-container">
 <form method="post" action="http://localhost:8080/login.jsp">
-    <fieldset class="uk-fieldset uk-margin-large-left uk-margin-small-bottom uk-form-width-medium">
-        <div class="uk-margin">Username:
-            <input id="username" name="username" type="text" class="uk-input uk-form-danger" placeholder="Username">
+    <fieldset class="uk-fieldset uk-margin-large-left uk-margin-small-bottom uk-form-width-medium ">
+        <div class="uk-margin">
+            <input id="username" name="username" type="text" class="uk-input uk-form-danger " placeholder="Username">
         </div>
         <br>
-        <div class="uk-margin">Password:
-            <input id="password" name="password" type="password" class="uk-input uk-form-danger uk-form-success" placeholder="Password">
+        <div class="uk-margin">
+            <input id="password" name="password" type="password" class="uk-input uk-form-success" placeholder="Password">
         </div>
         <br>
-        <button type="submit" class="uk-button-primary uk-button-large uk-width-1-2@m uk-text-small uk-padding-small">Submit</button>
+        <button type="submit" class="uk-button-primary uk-width-1-2@m uk-text-small uk-padding-small">Submit</button>
     </fieldset>
 </form>
     <hr class="uk-divider-icon">
-    <p class="uk-margin-large-left">Admin Parameter: <%=request.getParameter("username")%></p>
-    <p class="uk-margin-large-left">Password Parameter: <%= request.getParameter("password")%></p>
+    <p class="uk-text-small uk-text-center ">Admin Parameter: <%=request.getParameter("username")%></p>
+    <p class="uk-text-small uk-text-center ">Password Parameter: <%= request.getParameter("password")%></p>
     
     <c:if test="${param.username.equalsIgnoreCase('admin') && param.password.equalsIgnoreCase('password')}">
         <c:redirect url="profile.jsp"></c:redirect>
