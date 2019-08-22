@@ -30,8 +30,6 @@
         <button type="submit" class="uk-button-primary">Submit</button>
     </fieldset>
 </form>
-
-
     <p>Admin Parameter: <%=request.getParameter("username")%></p>
     <p>Password Parameter: <%= request.getParameter("password")%></p>
     
