@@ -16,14 +16,17 @@
     <p>Apply for our <span>${sessionScope.program}</span> program!</p>
 
 
+
+    <h3>Price: ${param.price}.00</h3>
     <form action="#">
 
-        <c:if test="se"
-        <label for="Q1">Do you know Python?</label>
-        <select name="Q1" id="Q1">
-            <option value="0">No</option>
-            <option value="1">Yes</option>
-        </select>
+        <c:if test="${sessionScope.program == 'DS'}">
+             <label for="Q1">Do you know Python?</label>
+             <select name="Q1" id="Q1">
+                 <option value="0">No</option>
+                 <option value="1">Yes</option>
+             </select>
+        </c:if>
         <hr class="uk-divider-icon">
         <label for="Q2">Do you like solving problems?</label>
         <select name="Q2" id="Q2">
@@ -36,6 +39,7 @@
             <option value="0">Yes</option>
             <option value="1">Yes</option>
         </select>
+
     </form>
 </body>
 </html>
