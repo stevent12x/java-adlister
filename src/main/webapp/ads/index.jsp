@@ -17,10 +17,8 @@
 <h2>Here are the ads you requested:</h2>
 
 <c:forEach var="ad" items="${ads}">
-    <div class="ad">
         <h4>${ad.title}</h4>
         <p>${ad.description}</p>
-    </div>
 </c:forEach>
 </body>
 </html>
