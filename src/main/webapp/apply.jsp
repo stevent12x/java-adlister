@@ -39,7 +39,9 @@
             <option value="0">Yes</option>
             <option value="1">Yes</option>
         </select>
-
+        <hr class="uk-divider-icon">
+        <button type="submit">SUBMIT ANSWERS</button>
+        <hr class="uk-divider-icon">
     </form>
 </body>
 </html>
