@@ -14,7 +14,7 @@
 </head>
 <body>
 <container class="uk-container">
-<form method="post" action="http://localhost:8080/login.jsp">
+<form method="post" action="/login">
     <fieldset class="uk-fieldset uk-margin-large-left uk-margin-small-bottom uk-form-width-medium ">
         <div class="uk-margin">
             <input id="username" name="username" type="text" class="uk-input uk-form-danger " placeholder="Username">
@@ -28,12 +28,8 @@
     </fieldset>
 </form>
     <hr class="uk-divider-icon">
-    <p class="uk-text-small uk-text-center ">Admin Parameter: <%=request.getParameter("username")%></p>
-    <p class="uk-text-small uk-text-center ">Password Parameter: <%= request.getParameter("password")%></p>
-    
-    <c:if test="${param.username.equalsIgnoreCase('admin') && param.password.equalsIgnoreCase('password')}">
-        <c:redirect url="profile.jsp"></c:redirect>
-    </c:if>
+    <hr class="uk-divider-icon">
+
 </container>
 </form>
 </body>
