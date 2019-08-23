@@ -17,7 +17,7 @@
 
 
 
-    <h3>Price: ${param.price}.00</h3>
+    <h3>Price: ${price}.00</h3>
     <form action="#">
 
         <c:if test="${sessionScope.program == 'DS'}">
