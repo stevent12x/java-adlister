@@ -3,7 +3,7 @@ import com.mysql.cj.jdbc.Driver;
 import java.sql.*;
 
 public class MySQLJDBCTest {
-    public static Connection connect() throws SQLException {
+    private static Connection connect() throws SQLException {
         DriverManager.registerDriver(new Driver());
         Connection connection = DriverManager.getConnection(
                 Config.getUrl(),
