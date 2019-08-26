@@ -18,5 +18,4 @@ public class MYSQLAdsDao implements Ads {
         return connection;
     }
 
-    Statement stmnt =
 }
