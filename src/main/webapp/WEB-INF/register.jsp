@@ -30,10 +30,6 @@
                 <label for="password">Password</label>
                 <input id="password" name="password" class="form-control" type="text">
             </div>
-            <div class="form-group">
-                <label for="confirmPassword">Please Confirm Your Password</label>
-                <input id="confirmPassword" name="confirmPassword" class="form-control" type="text">
-            </div>
             <input type="submit" class="btn btn-primary btn-block" value="Log In">
         </form>
     </div>

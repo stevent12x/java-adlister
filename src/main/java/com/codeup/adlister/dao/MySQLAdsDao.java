@@ -4,9 +4,6 @@ import com.codeup.adlister.config.Config;
 import com.codeup.adlister.models.Ad;
 import com.mysql.cj.jdbc.Driver;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -56,13 +53,6 @@ public class MySQLAdsDao implements Ads {
             throw new RuntimeException("Error creating a new ad.", e);
         }
     }
-
-//    private String createInsertQuery(Ad ad) {
-//        return "INSERT INTO ads(user_id, title, description) VALUES "
-//            + "(" + ad.getUserId() + ", "
-//            + "'" + ad.getTitle() +"', "
-//            + "'" + ad.getDescription() + "')";
-//    }
 
     private Ad extractAd(ResultSet rs) throws SQLException {
         return new Ad(
