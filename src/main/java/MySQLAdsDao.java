@@ -1,55 +1,66 @@
 import com.mysql.cj.jdbc.Driver;
-
+import java.sql.DriverManager;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 
 public class MySQLAdsDao implements Ads {
     Connection connection;
 
-    public MySQLAdsDao(Config config){
 
-    }
-
-    public MySQLAdsDao() {
-
-    }
-
-
-    private Connection connect() throws SQLException {
+    public Connection connection(Config config) throws SQLException{
         DriverManager.registerDriver(new Driver());
         Connection connection = DriverManager.getConnection(
-                Config.getUrl(),
-                Config.getUser(),
-                Config.getPassword()
+                config.getUrl(),
+                config.getUser(),
+                config.getPassword()
         );
-
         return connection;
     }
+
     @Override
     public List<Ad> all() throws SQLException {
-        String selectQuery = "SELECT * from ads";
-        Statement statement = connection.createStatement();
-        ResultSet results = statement.executeQuery(selectQuery);
-        while (results.next()) {
-            System.out.println("Here is an ad " + results.getString("title"));
+        List<Ad> ads = new ArrayList<>();
+        try {
+            Statement statement = this.connection.createStatement();
+            String queryString = "SELECT * from ads";
+            ResultSet results = statement.executeQuery(queryString);
+            if (results != null) {
+                System.out.println("Executed successfully!");
+                while (results.next()) {
+                    Ad nextAd = new Ad(
+                            results.getLong("id"),
+                            results.getLong("user_id"),
+                            results.getString("title"),
+                            results.getString("description")
+                    );
+                    ads.add(nextAd);
+                }
+            } else {
+                System.out.println("System exploderd!");
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
         }
-        return null;
-    }
-    @Override
-    public Long insert(Ad ad) throws SQLException {
-        String selectQuery = "INSERT into ads (title, description) VALUES ('an old, old hat', 'worn by my grandfather')";
-        Statement statement = connection.createStatement();
-        ResultSet results = statement.executeQuery(selectQuery);
-        while (results.next()) {
-            System.out.println("Added: " + results.getString("title") + " -- " + results.getString("description"));
-        }
-        return null;
+        return ads;
     }
 
-    public static void main(String[] args) throws SQLException {
-        Config config = new Config();
-        MySQLAdsDao adsDao = new MySQLAdsDao(config);
-        System.out.println(adsDao);
+    @Override
+    public Long insert(Ad ad) {
+        Long id = -1L;
+        try {
+        Statement statement = this.connection.createStatement();
+        String queryString = "INSERT INTO ads(user_id, title, description)" + "VALUES (1, '"+ad.getTitle()+"', '"+ad.getDescription()+"');";
+        statement.executeUpdate(queryString, statement.RETURN_GENERATED_KEYS);
+        ResultSet rs = statement.getGeneratedKeys();
+        while (rs.next()) {
+            id = rs.getLong(1);
+            System.out.println("inserted a new record! new id is: " + id);
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+    return id;
     }
 }
