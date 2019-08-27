@@ -23,6 +23,7 @@ public class MySQLAdsDao implements Ads {
                 Config.getUser(),
                 Config.getPassword()
         );
+
         return connection;
     }
     @Override
