@@ -9,14 +9,19 @@ public class MySQLAdsDao implements Ads {
     Connection connection;
 
 
-    public Connection connection(Config config) throws SQLException{
-        DriverManager.registerDriver(new Driver());
-        Connection connection = DriverManager.getConnection(
-                config.getUrl(),
-                config.getUser(),
-                config.getPassword()
-        );
-        return connection;
+    public MySQLAdsDao() {
+        try {
+            DriverManager.registerDriver(new Driver());
+            this.connection = DriverManager.getConnection(
+                    Config.getUrl(),
+                    Config.getUser(),
+                    Config.getPassword()
+            );
+            System.out.println("Success!");
+        } catch (SQLException e) {
+            System.out.println("Failure!");
+            e.printStackTrace();
+        }
     }
 
     @Override
