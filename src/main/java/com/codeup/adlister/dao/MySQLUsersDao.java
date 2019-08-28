@@ -28,6 +28,15 @@ public class MySQLUsersDao implements Users{
 
     @Override
     public User findByUsername(String username) {
+        try {
+            PreparedStatement stmt = connection.prepareStatement("SELECT  * FROM  users WHERE  username = ?");
+            stmt.setString(1, username);
+            ResultSet rs = stmt.executeQuery();
+            rs.next();
+            return extractUser(rs);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return null;
     }
 
@@ -56,11 +65,11 @@ public class MySQLUsersDao implements Users{
         );
     }
 
-    private List<User> createUsersFromResults(ResultSet rs) throws SQLException {
-        List<User> users = new ArrayList<>();
-        while (rs.next()) {
-            users.add(extractUser(rs));
-        }
-        return users;
-    }
+//    private List<User> createUsersFromResults(ResultSet rs) throws SQLException {
+//        List<User> users = new ArrayList<>();
+//        while (rs.next()) {
+//            users.add(extractUser(rs));
+//        }
+//        return users;
+//    }
 }
