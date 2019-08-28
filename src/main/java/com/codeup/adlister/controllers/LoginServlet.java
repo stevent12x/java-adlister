@@ -1,11 +1,16 @@
 package com.codeup.adlister.controllers;
 
+import com.codeup.adlister.dao.MySQLAdsDao;
+import com.sun.org.apache.xerces.internal.impl.dv.ValidatedInfo;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
 
 @WebServlet(name = "controllers.LoginServlet", urlPatterns = "/login")
 public class LoginServlet extends HttpServlet {

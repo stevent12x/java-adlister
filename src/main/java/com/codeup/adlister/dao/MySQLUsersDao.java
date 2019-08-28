@@ -34,11 +34,11 @@ public class MySQLUsersDao implements Users{
     @Override
     public Long insert(User user){
         try {
-            PreparedStatement stmt = connection.prepareStatement("INSERT INTO users(id, username, email, password) VALUES(?,?,?,?) ", Statement.RETURN_GENERATED_KEYS);
-            stmt.setLong(1,user.getId());
-            stmt.setString(2, user.getUsername());
-            stmt.setString(3, user.getEmail());
-            stmt.setString(4, user.getPassword());
+            PreparedStatement stmt = connection.prepareStatement("INSERT INTO users(username, email, password) VALUES(?,?,?) ", Statement.RETURN_GENERATED_KEYS);
+            stmt.setString(1, user.getUsername());
+            stmt.setString(2, user.getEmail());
+            stmt.setString(3, user.getPassword());
+            stmt.executeUpdate();
             ResultSet rs = stmt.getGeneratedKeys();
             rs.next();
             return rs.getLong(1);

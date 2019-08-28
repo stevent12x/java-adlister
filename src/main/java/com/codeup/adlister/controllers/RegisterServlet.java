@@ -20,7 +20,6 @@ public class RegisterServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException{
         User user = new User(
-                2,
                 request.getParameter("username"),
                 request.getParameter("email"),
                 request.getParameter("password")
