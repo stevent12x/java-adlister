@@ -23,30 +23,30 @@ public class RegisterServlet extends HttpServlet {
         // TODO: ensure the submitted information is valid
         // TODO: create a new user based off of the submitted information
         // TODO: if a user was successfully created, send them to their profile
-
-        User newUser = new User(
-                request.getParameter("username"),
-                request.getParameter("email"),
-                request.getParameter("password")
-        );
-
-        DaoFactory.getUsersDao().insert(newUser);
-        if (newUser != null) {
-            response.sendRedirect("/profile");
-        } else {
-            response.sendRedirect("/login");
-        }
+//
+//        User newUser = new User(
+//                request.getParameter("username"),
+//                request.getParameter("email"),
+//                request.getParameter("password")
+//        );
+//
+//        DaoFactory.getUsersDao().insert(newUser);
+//        if (newUser != null) {
+//            response.sendRedirect("/profile");
+//        } else {
+//            response.sendRedirect("/login");
+//        }
 
 
 //        Or - - a different way without creating a new constructor //
-//        User newUser = new User();
-//                newUser.setUsername(request.getParameter("username"));
-//                newUser.setEmail(request.getParameter("email"));
-//                newUser.setPassword(request.getParameter("password"));
-//                long id = DaoFactory.getUsersDao().insert(newUser);
-//                newUser.setId(id);
-//                request.getSession().setAttribute("user", newUser);
-//                response.sendRedirect("/profile");
+        User newUser = new User();
+                newUser.setUsername(request.getParameter("username"));
+                newUser.setEmail(request.getParameter("email"));
+                newUser.setPassword(request.getParameter("password"));
+                long id = DaoFactory.getUsersDao().insert(newUser);
+                newUser.setId(id);
+                request.getSession().setAttribute("user", newUser);
+                response.sendRedirect("/profile");
 
     }
 }
